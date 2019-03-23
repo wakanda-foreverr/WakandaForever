@@ -13,7 +13,7 @@ import com.wakandaforever.wakandaforever.models.Data;
 public interface DataDao extends CrudRepository<Data, Long> {
 	
 	@Query(
-			value = "SELECT * FROM farm_object ORDER BY created_at DESC", nativeQuery = true
+			value = "SELECT * FROM data ORDER BY created_at DESC", nativeQuery = true
 		)
 	List<Data> findAllSortedByDate(Pageable page);
 }

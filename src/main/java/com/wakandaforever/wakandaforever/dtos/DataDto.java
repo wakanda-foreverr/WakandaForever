@@ -1,7 +1,6 @@
 package com.wakandaforever.wakandaforever.dtos;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class DataDto {
@@ -17,6 +16,5 @@ public class DataDto {
 	private Float sound;
 	private Float light;
 	private Float airQuality;
-	
 
 }

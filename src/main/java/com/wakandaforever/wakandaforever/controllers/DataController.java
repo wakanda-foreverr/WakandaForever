@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wakandaforever.wakandaforever.dtos.DataDto;
 import com.wakandaforever.wakandaforever.models.Data;
 import com.wakandaforever.wakandaforever.services.data.DataService;
 
-@RestController("/data")
+@RestController
+@RequestMapping("/data")
 public class DataController {
 	
 	@Autowired
@@ -28,6 +30,10 @@ public class DataController {
 	@PostMapping("/save")
 	public ResponseEntity<DataDto> saveData(@RequestBody DataDto dataDto) {
 		System.out.println("Called saveData");
+		if(dataDto == null) {
+			System.out.println("dto is null, returning BAD_REQUEST");
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		Data newData = dataService.save(dataDto);
 		DataDto newDto = modelMapper.map(newData, DataDto.class);
 		return new ResponseEntity<>(newDto, HttpStatus.OK);
@@ -44,6 +50,7 @@ public class DataController {
 		return new ResponseEntity<>(dataList, HttpStatus.OK);
 	}
 	
+	@GetMapping("/all/{id}")
 	public ResponseEntity<DataDto> getDataById(@PathVariable Long id) {		
 		System.out.println("Called getDataById");
 		if(id == null) {
