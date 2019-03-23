@@ -1,4 +1,5 @@
 import axios from 'axios'
+import cookie from 'vue-cookie'
 
 const apiClient = axios.create({
     baseURL: `http://80.240.21.133:7777`,
@@ -21,7 +22,7 @@ export default {
     loginUser(user) {
         return apiClient.post("/token/generateToken", user)
             .then(response => {
-                this.$cookie.set("token", response.data.token, 1);
+                cookie.set("token", response.data.token, 1);
             })
             .catch(exception => {console.log(exception)});
     }
