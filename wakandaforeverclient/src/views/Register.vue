@@ -18,16 +18,22 @@
                             <span class="focus-input100"></span>
                         </div>
 
+                        <br/>
+
                         <div class="wrap-input100 validate-input" data-validate = "Please confirm password">
                             <input class="input100" type="password" name="passconfirm" placeholder="Confirm Password">
                             <span class="focus-input100"></span>
                         </div>
+
+                        <br/>
 
                         <div class="container-login100-form-btn">
                             <button type="submit" class="login100-form-btn">
                                 Register
                             </button>
                         </div>
+
+                        <br/>
 
                     </form>
                 </div>
