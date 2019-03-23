@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: stefan
+Build-Jdk: 10.0.2
+Implementation-Title: wakandaforever
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.wakandaforever
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/wakandaforever
+Created-By: Maven Integration for Eclipse
+
