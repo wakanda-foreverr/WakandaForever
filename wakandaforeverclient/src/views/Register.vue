@@ -14,14 +14,17 @@
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate = "Please enter password">
-                            <input v-model="password" class="input100" type="password" name="pass" placeholder="Password">
+                            <input v-model="password" class="input100" id="password"
+                                   type="password" name="password" placeholder="Password">
                             <span class="focus-input100"></span>
                         </div>
 
                         <br/>
 
                         <div class="wrap-input100 validate-input" data-validate = "Please confirm password">
-                            <input class="input100" type="password" name="passconfirm" placeholder="Confirm Password">
+                            <input v-model="passwordConfirm" id="passwordConfirm"
+                                   class="input100" type="password"
+                                   name="passwordConfirm" placeholder="Confirm Password">
                             <span class="focus-input100"></span>
                         </div>
 
@@ -50,21 +53,33 @@
         data() {
             return {
                 username: '',
-                password: ''
+                password: '',
+                passwordConfirm: ''
             }
         },
         methods: {
             registerUser() {
+
                 let newUser = {
                     username: this.username,
                     password: this.password
                 };
 
-                userService.registerUser(newUser);
+                if(this.password === this.passwordConfirm){
+                    userService.registerUser(newUser);
+                }
+                else{
+                    document.getElementById("password").classList.add("danger");
+                    document.getElementById("passwordConfirm").classList.add("danger");
+                }
+
             }
         }
     }
 </script>
 
 <style>
+    .danger {
+        background-color: #ff0000;
+    }
 </style>
