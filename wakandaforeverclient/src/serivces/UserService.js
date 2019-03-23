@@ -23,6 +23,7 @@ export default {
         return apiClient.post("/token/generateToken", user)
             .then(response => {
                 cookie.set("token", response.data.token, 1);
+                this.$router.push('/dashboard');
             })
             .catch(exception => {console.log(exception)});
     }
