@@ -4,6 +4,8 @@ import com.wakandaforever.wakandaforever.dtos.UserDto;
 import com.wakandaforever.wakandaforever.models.User;
 import com.wakandaforever.wakandaforever.services.users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,20 +20,23 @@ public class UserController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value="/users")
-    public List<User> listUser(){
-        return userService.findAll();
+    public ResponseEntity<List<User>> listUser(){
+        return new ResponseEntity<>(userService.findAll(),HttpStatus.OK);
     }
 
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @GetMapping(value = "/users/{id}")
-    public User getOne(@PathVariable(value = "id") Long id){
-        return userService.findById(id);
+    public ResponseEntity<User> getOne(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(userService.findById(id),HttpStatus.OK);
     }
 
 
     @PostMapping(value="/signup")
-    public User saveUser(@RequestBody UserDto user){
-        return userService.save(user);
+    public ResponseEntity<User> saveUser(@RequestBody UserDto user){
+    	if(userService.findOne(user.getUsername()) != null) {
+    		return new ResponseEntity<>(null,HttpStatus.CONFLICT);
+    	}
+        return new ResponseEntity<>(userService.save(user),HttpStatus.OK);
     }
 
 
