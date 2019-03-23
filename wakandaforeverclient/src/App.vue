@@ -1,16 +1,35 @@
 <template>
   <div id="app">
     <div id="nav">
-      <!--TODO: remove the links if the user is logged in/out-->
-      <router-link to="/">Home</router-link> |
-      <router-link to="/signin">Sign in</router-link> |
-      <router-link to="/signup">Sign up</router-link> |
-      <router-link to="/logout">Logout</router-link>
-
+      <router-link id="home" to="/">Home</router-link> |
+      <router-link class="hidden" id="signin" to="/signin">Sign in</router-link> |
+      <router-link class="hidden" id="signup" to="/signup">Sign up</router-link> |
+      <router-link class="hidden" id="logout" to="/logout">Logout</router-link>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+  import cookie from "vue-cookie";
+
+  export default {
+    mounted() {
+      let signInLink = document.getElementById("signin");
+      let signUpLInk = document.getElementById("signup");
+      let logoutLink = document.getElementById("logout");
+
+      if(cookie.get("token")){
+        logoutLink.classList.remove("hidden");
+      }
+      else{
+        signUpLInk.classList.remove("hidden");
+        signInLink.classList.remove("hidden");
+      }
+
+    }
+  }
+</script>
 
 <style src="./assets/css/main.css"/>
 <style src="./assets/css/util.css"/>
@@ -34,5 +53,9 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.hidden {
+    visibility: hidden;
 }
 </style>

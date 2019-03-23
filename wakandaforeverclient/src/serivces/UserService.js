@@ -17,8 +17,9 @@ export default {
         return apiClient.post("/signup", user)
             .then(response => {
                 console.log(response.data)
-                // todo: call loginUser()
-            });
+                router.push("/signin");
+                window.location.reload(true);
+            })
     },
     loginUser: function (user) {
         return apiClient.post("/token/generateToken", user)
@@ -30,9 +31,10 @@ export default {
                 apiClient.defaults.headers.common["Authorization"] = 'Bearer ' + cookie.get("token");
 
                 apiClient.get("/users/me").then(response => {
-                    console.log(response.data)
-                    router.push("/dashboard")
-                })
+                    console.log(response.data);
+                    router.push("/dashboard");
+                });
+                window.location.reload(true);
             })
             .catch(exception => {
                 console.log(exception)
@@ -41,5 +43,6 @@ export default {
     logoutUser: function () {
         cookie.delete("token");
         router.push('/');
+        window.location.reload(true);
     }
 }
