@@ -14,5 +14,15 @@ export default {
     registerUser(user) {
         return apiClient.post("/signup", user)
             .then(response => {console.log(response.data)});
+    },
+    loginUser(user) {
+        return apiClient.post("/token/generateToken", user)
+            .then(response => {
+                console.log(response.data);
+
+                // TODO: save the returned token
+
+            })
+            .catch(exception => {console.log(exception)});
     }
 }
