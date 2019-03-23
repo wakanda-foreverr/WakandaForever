@@ -28,8 +28,8 @@ export default new Router({
       component: () => import("./views/Login.vue")
     },
     {
-      path: "/register",
-      name: "register",
+      path: "/signup",
+      name: "signup",
       component: () => import("./views/Register.vue")
     }
   ]

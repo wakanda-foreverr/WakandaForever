@@ -5,7 +5,7 @@
                 <div class="wrap-login100">
                     <form v-on:submit.prevent="registerUser" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
-						Register
+						Sign up
 					</span>
 
                         <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
@@ -29,7 +29,7 @@
 
                         <div class="container-login100-form-btn">
                             <button type="submit" class="login100-form-btn">
-                                Register
+                                Sign up
                             </button>
                         </div>
 
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+    import userService from "../serivces/UserService";
+
     export default {
         name: "Register.vue",
         data() {
@@ -57,12 +59,12 @@
                     username: this.username,
                     password: this.password
                 };
-                console.log(newUser);
+
+                userService.registerUser(newUser);
             }
         }
     }
 </script>
 
-<style scoped>
-
+<style>
 </style>
