@@ -13,15 +13,15 @@ const apiClient = axios.create({
 export default {
     registerUser(user) {
         return apiClient.post("/signup", user)
-            .then(response => {console.log(response.data)});
+            .then(response => {
+                console.log(response.data)
+                // todo: call loginUser()
+            });
     },
     loginUser(user) {
         return apiClient.post("/token/generateToken", user)
             .then(response => {
-                console.log(response.data);
-
-                // TODO: save the returned token
-
+                this.$cookie.set("token", response.data.token, 1);
             })
             .catch(exception => {console.log(exception)});
     }
