@@ -37,5 +37,9 @@ export default {
             .catch(exception => {
                 console.log(exception)
             });
+    },
+    logoutUser: function () {
+        cookie.delete("token");
+        router.push('/');
     }
 }

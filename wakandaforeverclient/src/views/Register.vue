@@ -47,7 +47,7 @@
 
 <script>
     import userService from "../serivces/UserService";
-
+    import cookie from 'vue-cookie';
     export default {
         name: "Register.vue",
         data() {
@@ -73,7 +73,15 @@
                     document.getElementById("passwordConfirm").classList.add("danger");
                 }
 
+            },
+            onLoad(){
+                if(cookie.get("token")){
+                    this.$router.push('/dashboard');
+                }
             }
+        },
+        mounted() {
+            this.onLoad()
         }
     }
 </script>

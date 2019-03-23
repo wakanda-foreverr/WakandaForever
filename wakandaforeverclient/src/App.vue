@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!--TODO: remove the links if the user is logged in/out-->
       <router-link to="/">Home</router-link> |
       <router-link to="/signin">Sign in</router-link> |
-      <router-link to="/signup">Sign up</router-link>
+      <router-link to="/signup">Sign up</router-link> |
+      <router-link to="/logout">Logout</router-link>
+
     </div>
     <router-view />
   </div>

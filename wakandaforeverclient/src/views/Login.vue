@@ -37,6 +37,7 @@
 
 <script>
     import userService from "../serivces/UserService";
+    import cookie from  'vue-cookie';
 
     export default {
         name: "Login.vue",
@@ -53,7 +54,15 @@
                     password: this.password
                 }
                 userService.loginUser(user);
+            },
+            onLoad(){
+                if(cookie.get("token")){
+                    this.$router.push('/dashboard');
+                }
             }
+        },
+        mounted() {
+            this.onLoad()
         }
     }
 </script>
