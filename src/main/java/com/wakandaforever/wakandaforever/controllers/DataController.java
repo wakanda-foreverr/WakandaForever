@@ -40,7 +40,7 @@ public class DataController {
 		return new ResponseEntity<>(newDto, HttpStatus.OK);
 	}
 	
-	@CrossOrigin(origins = "http://80.240.21.133:7777")
+	@CrossOrigin
 	@GetMapping("/all")
 	public ResponseEntity<List<DataDto>> getAllData() {
 		System.out.println("Called getAllData");
@@ -52,7 +52,7 @@ public class DataController {
 		return new ResponseEntity<>(dataList, HttpStatus.OK);
 	}
 	
-	@CrossOrigin(origins = "http://80.240.21.133:7777")
+	@CrossOrigin
 	@GetMapping("/all/{id}")
 	public ResponseEntity<DataDto> getDataById(@PathVariable Long id) {		
 		System.out.println("Called getDataById");
