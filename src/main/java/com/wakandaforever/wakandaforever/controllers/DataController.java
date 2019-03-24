@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,7 @@ public class DataController {
 		return new ResponseEntity<>(newDto, HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "http://80.240.21.133:7777")
 	@GetMapping("/all")
 	public ResponseEntity<List<DataDto>> getAllData() {
 		System.out.println("Called getAllData");
@@ -50,6 +52,7 @@ public class DataController {
 		return new ResponseEntity<>(dataList, HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "http://80.240.21.133:7777")
 	@GetMapping("/all/{id}")
 	public ResponseEntity<DataDto> getDataById(@PathVariable Long id) {		
 		System.out.println("Called getDataById");
