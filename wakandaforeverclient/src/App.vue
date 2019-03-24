@@ -75,7 +75,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #57b846;
+  color: #002b80;
 }
 #nav {
   padding: 30px;
