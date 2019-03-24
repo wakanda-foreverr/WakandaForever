@@ -7,17 +7,19 @@ let apiClient = axios.create({
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + cookie.get("token")
+        'Authorization': 'Bearer ' + cookie.get("token"),
+        'Access-Control-Allow-Origin': '*'
     },
     timeout: 10000
 });
 
 export default {
-    // TODO: send request to get and display all data
     getAllData: function () {
-        apiClient.get("/data/all/getAllData")
+        apiClient.get("/data/all/")
             .then(
-            response => {console.log(response.data);}
-        )
+            response => {
+                console.log(response.data)
+            }
+        );
     }
 }
