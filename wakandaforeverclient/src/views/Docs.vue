@@ -21,7 +21,7 @@
 
                                         <tr>
                                             <td>1</td>
-                                            <td>/data/all/getAllData</td>
+                                            <td>/data/all/</td>
                                             <td> - </td>
                                             <td>GET</td>
                                             <td>Returns all data collected by the sensors</td>
@@ -36,7 +36,7 @@
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>/data/save/saveData</td>
+                                            <td>/data/save/</td>
                                             <td> - </td>
                                             <td>POST</td>
                                             <td>Saves the data collected by the sensors in the database</td>
