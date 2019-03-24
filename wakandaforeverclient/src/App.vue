@@ -3,9 +3,9 @@
     <div id="nav">
       <a class="navbar-brand" href="index.html">Wakanda Forever API</a>
       <router-link id="home" to="/">Home</router-link> |
-      <router-link class="hidden" id="signin" to="/signin">Sign in</router-link> |
-      <router-link class="hidden" id="signup" to="/signup">Sign up</router-link> |
-      <router-link class="hidden" id="logout" to="/logout">Logout</router-link>
+      <router-link id="signin" to="/signin">Sign in</router-link> |
+      <router-link id="signup" to="/signup">Sign up</router-link> |
+      <router-link id="logout" to="/logout">Logout</router-link>
     </div>
     <router-view />
   </div>
@@ -21,11 +21,11 @@
       let logoutLink = document.getElementById("logout");
 
       if(cookie.get("token")){
-        logoutLink.classList.remove("hidden");
+        signInLink.classList.add("hidden");
+        signUpLInk.classList.add("hidden");
       }
       else{
-        signUpLInk.classList.remove("hidden");
-        signInLink.classList.remove("hidden");
+        logoutLink.classList.add("hidden");
       }
 
     }
