@@ -3,6 +3,7 @@
     <div id="nav">
       <a class="navbar-brand" href="index.html">Wakanda Forever API</a>
       <router-link id="home" to="/">Home</router-link> |
+      <router-link id="docs" to="/docs">Documentaion</router-link> |
       <router-link id="signin" to="/signin">Sign in</router-link> |
       <router-link id="signup" to="/signup">Sign up</router-link> |
       <router-link id="logout" to="/logout">Logout</router-link>
