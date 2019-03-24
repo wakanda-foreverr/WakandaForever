@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <a class="navbar-brand" href="index.html">Wakanda Forever API</a>
       <router-link id="home" to="/">Home</router-link> |
       <router-link class="hidden" id="signin" to="/signin">Sign in</router-link> |
       <router-link class="hidden" id="signup" to="/signup">Sign up</router-link> |
@@ -73,13 +74,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #57b846;
 }
 #nav {
   padding: 30px;
 }
 
-#nav a {
+a {
   font-weight: bold;
   color: #2c3e50;
 }
