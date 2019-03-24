@@ -8,6 +8,9 @@ Vue.config.productionTip = false;
 var VueCookie = require('vue-cookie');
 Vue.use(VueCookie);
 
+window.$ = require('jquery')
+window.JQuery = require('jquery')
+
 new Vue({
   router,
   store,
