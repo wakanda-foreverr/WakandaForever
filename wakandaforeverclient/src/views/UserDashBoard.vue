@@ -1,11 +1,8 @@
 <template>
     <div class="dashboard-main-wrapper">
-            <!-- ============================================================== -->
-            <!-- navbar -->
-            <!-- ============================================================== -->
             <div class="dashboard-header">
                 <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                    <a class="navbar-brand" href="index.html">Wakanda Forever</a>
+                    <a class="navbar-brand" href="index.html">Wakanda Forever API</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -29,7 +26,7 @@
             </div>
             <div class="ecommerce-widget">
             <div class="row">
-                <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                <div class="col-12">
                     <div class="card">
                         <h5 class="card-header">Sensors Data</h5>
                         <div class="card-body p-0">
@@ -49,6 +46,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
+                                    <!--TODO: for each result from the dashboardService => display the row-->
+
                                     <tr>
                                         <td>1</td>
                                         <td>
@@ -62,6 +62,8 @@
                                         <td>Patricia J. King </td>
                                         <td><span class="badge-dot badge-brand mr-1"></span>InTransit </td>
                                     </tr>
+
+
                                     <tr>
                                         <td>2</td>
                                         <td>
@@ -101,9 +103,9 @@
                                         <td>Michael K. Ledford </td>
                                         <td><span class="badge-dot badge-success mr-1"></span>Delivered </td>
                                     </tr>
-                                    <tr>
-                                        <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                    </tr>
+                                    <!--<tr>-->
+                                        <!--<td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>-->
+                                    <!--</tr>-->
                                     </tbody>
                                 </table>
                             </div>
