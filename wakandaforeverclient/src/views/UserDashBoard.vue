@@ -57,7 +57,15 @@
         data() {
             return {
                 allData: null,
-                fields: ['Sound', 'Temperature','Humidity','Air Pressure','Fire','Light', 'Soil Moisture', 'Water Level', 'Air Quality']
+                sound: "N/A",
+                temperature: "N/A",
+                humidity: "N/A",
+                airPressure: "N/A",
+                fire: "N/A",
+                light: "N/A",
+                soilMoisture: "N/A",
+                waterLevel: "N/A",
+                airQuality: "N/A"
             }
         },
         mounted() {
