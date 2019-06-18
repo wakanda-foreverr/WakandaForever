@@ -38,7 +38,7 @@
                                         <td v-bind:key="soilMoisture">{{data.soilMoisture}}</td>
                                         <td v-bind:key="waterLevel">{{data.waterLevel}}</td>
                                         <td v-bind:key="airQuality">{{data.airQuality}}</td>
-                                        <td v-bind:key="created">{{data.created}}</td>
+                                        <td v-bind:key="created">{{data.createdAt}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
