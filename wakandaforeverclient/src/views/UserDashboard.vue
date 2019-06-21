@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <!--<ChartLine options="" series=""></ChartLine>-->
-                        <!--<chart-line></chart-line>-->
+                        <chart-line></chart-line>
+                        <hr/>
                         <data-table></data-table>
                     </div>
                 </div>
@@ -15,12 +15,11 @@
 </template>
 
 <script>
-    // import ChartLine from "./ChartLine";
+    import ChartLine from "./ChartLine";
     import DataTable from "./Datatable";
 
     export default {
-        // components: {ChartLine, DataTable}
-        components: {DataTable}
+        components: {ChartLine, DataTable}
     }
 
 </script>
