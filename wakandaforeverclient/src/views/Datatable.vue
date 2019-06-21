@@ -42,19 +42,14 @@
 </template>
 
 <script>
-    import axios from "axios";
-    import cookie from "vue-cookie";
-
-    axios.defaults.baseURL = 'http://80.240.21.133:7777';
-    axios.defaults.headers.common['Authorization'] = 'Bearer ' + cookie.get("token");
-    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    import {RepositoryFactory} from "../factories/repositoryFactory";
+    const DataRepository = RepositoryFactory.get("data");
 
     export default {
-        name: "Datatable.vue",
+        name: "data-table",
         data() {
             return {
-                allData: null,
+                allData: [],
                 row: 0,
                 sound: "N/A",
                 temperature: "N/A",
@@ -68,9 +63,14 @@
                 createdAt: null
             }
         },
-        mounted() {
-            axios.get('/data/all')
-                .then(response => (this.allData = response.data))
+        created() {
+            this.fetch();
+        },
+        methods: {
+            async fetch (){
+                const {data} = await DataRepository.get();
+                this.allData = data;
+            }
         }
     }
 </script>
