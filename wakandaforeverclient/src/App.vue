@@ -2,11 +2,11 @@
     <div id="app">
         <div id="nav">
             <a class="navbar-brand" href="index.html">Demeter API</a>
-            <router-link v-if="!loggedIn" id="home" to="/">Home |</router-link>
-            <router-link v-if="loggedIn" id="dashboard" to="/dashboard">Dashboard |</router-link>
-            <router-link id="docs" to="/docs">Documentaion |</router-link>
+            <router-link v-if="!loggedIn" id="home" to="/">Home | </router-link>
+            <router-link v-if="loggedIn" id="dashboard" to="/dashboard">Dashboard | </router-link>
+            <router-link id="docs" to="/docs">Documentaion | </router-link>
             <router-link v-if="loggedIn" id="logout" to="/logout">Logout</router-link>
-            <router-link v-if="!loggedIn" id="signin" to="/signin">Sign in |</router-link>
+            <router-link v-if="!loggedIn" id="signin" to="/signin">Sign in | </router-link>
             <router-link v-if="!loggedIn" id="signup" to="/signup">Sign up</router-link>
         </div>
         <router-view/>
