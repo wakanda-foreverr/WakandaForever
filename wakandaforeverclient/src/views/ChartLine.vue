@@ -81,11 +81,12 @@
                  this.fetchTemperature().then(result => {
                      this.chartData.series = [{
                              name: 'temperature',
-                             data: result
+                             data: result.temperature
                          }];
                      this.chartData.xaxis = {
+                         categories: result.createdAt,
                          title: {
-                             text: 'Value data per row',
+                             text: 'Time measured',
                              style: {
                                  fontSize: "16px"
                              }
@@ -98,11 +99,12 @@
             async fetchTemperature() {
                  const {data} = await DataRepository.get();
                  this.temperatureData = data.map(row => row.temperature).slice(0, 60);
-                 return this.temperatureData;
+                 let created = data.map(row => new Date(row.createdAt).getHours() +':'  + new Date(row.createdAt).getMinutes()).slice(0,60);
+                 return {temperature: this.temperatureData, createdAt: created};
             },
             async fetchHumidity(){
                 const {data} = await DataRepository.get();
-                this.humidityData = data.map(row => row.humidity);
+                this.humidityData = data.map(row => row.createdAt);
                 return this.humidityData;
             }
         }
