@@ -39,7 +39,7 @@
                         text: 'Temperature values movement chart',
                         align: 'left',
                         style: {
-                            fontSize: '24px',
+                            fontSize: '20px',
                             color: '#666'
                         }
                     },
