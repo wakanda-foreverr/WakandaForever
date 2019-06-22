@@ -36,7 +36,7 @@
                     },
                     series: [],
                     title: {
-                        text: 'Temperature and humidity chart',
+                        text: 'Temperature values movement chart',
                         align: 'left',
                         style: {
                             fontSize: '24px',
@@ -69,51 +69,41 @@
                 }
             }
         },
+        created() {
+            this.fetchTemperature();
+            this.fetchHumidity();
+        },
         mounted() {
             this.renderChart();
         },
-        created() {
-          this.fetchTemperature();
-          this.fetchHumidity();
-        },
         methods: {
              renderChart() {
-                 // console.log(this.temperatureData);
-                 // console.log(this.humidityData);
-                 // var parsedobj = JSON.parse(JSON.stringify(this.humidityData));
-                 // console.log(parsedobj);
-                 var series = [{
-                     name: 'Temperature',
-                     data: this.temperatureData
-                 }];
-                 var xaxis = {
-                     categories: this.humidityData,
-                     title: {
-                         text: 'Humidity',
-                         style: {
-                             fontSize: "16px"
+                 this.fetchTemperature().then(result => {
+                     this.chartData.series = [{
+                             name: 'temperature',
+                             data: result
+                         }];
+                     this.chartData.xaxis = {
+                         title: {
+                             text: 'Value data per row',
+                             style: {
+                                 fontSize: "16px"
+                             }
                          }
-                     }
-                 };
-
-                 this.chartData.series = series;
-                 this.chartData.xaxis = xaxis;
-                 var apexCharts = new ApexCharts(this.$refs.line, this.chartData);
-                 apexCharts.render();
+                     };
+                     var apexCharts = new ApexCharts(this.$refs.line, this.chartData);
+                     apexCharts.render();
+                 });
              },
-             fetchTemperature() {
-                DataRepository.get().then(
-                    result => {
-                        // console.log(data);
-                        this.temperatureData = result.data.map(row => row.temperature);
-                        console.log("fetchTemperature", this.temperatureData);
-                        return this.temperatureData;
-                    }
-                );
+            async fetchTemperature() {
+                 const {data} = await DataRepository.get();
+                 this.temperatureData = data.map(row => row.temperature).slice(0, 60);
+                 return this.temperatureData;
             },
             async fetchHumidity(){
                 const {data} = await DataRepository.get();
                 this.humidityData = data.map(row => row.humidity);
+                return this.humidityData;
             }
         }
     }
